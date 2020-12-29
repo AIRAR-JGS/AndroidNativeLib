@@ -47,6 +47,7 @@ public class MainActivity
 
     @TargetApi(23)
     public void CallOnResume() {
+        //
         Log.i("Unity", "callonresume");
         this.mUnityPlayer.resume();
     }
