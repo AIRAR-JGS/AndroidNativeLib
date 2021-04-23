@@ -86,8 +86,12 @@ public class MainActivity
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/*");
+        // Add the date meta data to ensure the image is added at the front of the gallery
+        values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
             values.put(MediaStore.Images.Media.IS_PENDING, 1);
         }
 
@@ -136,8 +140,12 @@ public class MainActivity
         ContentValues values = new ContentValues();
         values.put(MediaStore.Video.Media.DISPLAY_NAME, fileName);
         values.put(MediaStore.Video.Media.MIME_TYPE, "video/*");
+        // Add the date meta data to ensure the image is added at the front of the gallery
+        values.put(MediaStore.Video.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            values.put(MediaStore.Video.Media.DATE_TAKEN, System.currentTimeMillis());
             values.put(MediaStore.Video.Media.IS_PENDING, 1);
         }
 
